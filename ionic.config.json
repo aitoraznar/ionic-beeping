@@ -1,5 +1,9 @@
 {
   "name": "ionic-beeping",
   "app_id": "",
-  "type": "ionic1"
+  "browsers": [],
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ]
 }

@@ -15,8 +15,6 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
-
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -28,15 +26,29 @@
 
   <body ng-app="starter" ng-controller="MapCtrl">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Map</h1>
+      <h1 class="title">Beeping</h1>
     </ion-header-bar>
 
-    <ion-content scroll="false">
-      <map on-create="mapCreated(map)"></map>
+    <ion-content>
+
+      <div class="padding">
+        <button class="button button-outline button-icon button-block icon" ng-click="startListening();"
+        ng-class="{ 'button-assertive ion-ios7-mic-off': isbeepingListening, 'button-positive ion-ios7-mic': !isbeepingListening }">
+          <span ng-if="!isbeepingListening"> Start listening</span>
+          <span ng-if="isbeepingListening"> STOP listening</span>
+        </button>
+
+        <p>Beeps ({{ beepings.length }}):</p>
+        <ul>
+          <li ng-repeat="beep in beepings">{{ beep.title }}, {{ beep.url }} <small>{{ beep._id }}</small></li>
+        </ul>
+
+      </div>
+
     </ion-content>
 
     <ion-footer-bar class="bar-stable">
-      <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate"></a>
+
     </ion-footer-bar>
   </body>
 </html>
