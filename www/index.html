@@ -40,7 +40,10 @@
 
         <p>Beeps ({{ beepings.length }}):</p>
         <ul>
-          <li ng-repeat="beep in beepings">{{ beep.title }}, {{ beep.url }} <small>{{ beep._id }}</small></li>
+          <li ng-repeat="beep in beepings">
+            <strong>{{ beep._id }}</strong> {{ beep.title }}
+            <a ng-href="{{ beep.url }}">{{ beep.url }}</a>
+          </li>
         </ul>
 
       </div>
